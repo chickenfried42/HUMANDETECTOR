@@ -4,6 +4,7 @@ Why on earth would you need this?<br>
 Well, for one, you might be taking a walk in a nearby park and will want to monitor the position of a pet at home, or something.<br>
 Or, you might be commiting a crime, like a bank heist, and need something to alert you when somebody moves in a different room. <br>
 Regardless, the HUMANDETECTOR is a versatile tool, as it can [theoretically] reach up to 5 kilometers! (Well thats if you live on a farm or something..)<br>
+My main motivation for creating this was to test out the LoRa board, since I have never done anything with wireless transmission aside from WiFi, which has very limited range, so the thought of being able to transmit Kilometers away was very exciting. 
 <br>
 <br>
 <img width="712" alt="humandetectorthumb" src="https://github.com/user-attachments/assets/224c13fc-763d-4ac7-a694-62cb9c81bf67" />
@@ -11,6 +12,10 @@ Regardless, the HUMANDETECTOR is a versatile tool, as it can [theoretically] rea
 <img width="712" alt="pair" src="https://github.com/user-attachments/assets/19e23d6d-8d9b-4d00-9d4f-a87af5c4c308" />
 <img width="512" alt="s5" src="https://github.com/user-attachments/assets/46cdc5bb-0bd3-4662-9a62-b33267ad6157" />
 <img width="512" alt="s2" src="https://github.com/user-attachments/assets/d94b5f91-e013-413c-b93b-06a58dd22c6d" />
+
+<img width="712" alt="t2" src="https://github.com/user-attachments/assets/830ffab9-be0f-4f00-b48d-00e31c0eeaef" />
+<img width="712" alt="r2" src="https://github.com/user-attachments/assets/e5ff72aa-e6a1-4034-ba34-866bc3ed12f5" />
+
 
 # HOW TO USE
 Simply mount the detector on a wall in the room you want to monitor, and power it through the USB-C port.
@@ -21,7 +26,9 @@ Whenever somebody walks close enough, it will send a signal alerting you, along 
 <img width="512" alt="transmitterWiring" src="https://github.com/user-attachments/assets/50c48a2b-ca4a-46b3-999f-bb2d8c030a70" />
 <img width="512" alt="receiver" src="https://github.com/user-attachments/assets/e3290e71-61eb-491d-a211-339f1f96f089" />
 
-
+# HOW IT WORKS
+The transmitter is a LD2420 radar that is connected to an esp32c3 board, which is connected an E220 LoRa board. When the radar detects any movement by analyzing the radio waves that reflect back to itself, it sends a signal of the distance, which gets transmitted through the LoRa. 
+The receiver also has a LoRa module, and upon receiving the distance signal, the esp32c3 will display it on an SSD1306 OLED module. 
 
 # BOM
 
